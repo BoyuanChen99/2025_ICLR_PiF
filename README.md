@@ -19,7 +19,7 @@ Our analysis further reveals the inherent $\textit{distributional dependency}$ w
 To this end, we propose the Perceived-importance Flatten (PiF) method, which uniformly disperses the model's focus across neutral-intent tokens in the original input, thus obscuring malicious-intent tokens without relying on overfitted adversarial sequences.
 Extensive experiments demonstrate that PiF provides an effective and efficient red-teaming evaluation for proprietary LLMs.
 <p float="left" align="center">
-<img src="Method.pdf" width="650" />
+<img src="Method.png" width="650" />
 
 **Figure.** The procedure of Perceived-importance Flatten (PiF) Method.
 </p>
