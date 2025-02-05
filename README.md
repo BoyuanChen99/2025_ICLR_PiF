@@ -69,5 +69,11 @@ python3 PiF_MLM.py --gen_model_path ../bert-large-uncased --tgt_model_path gpt-4
 If you find the code useful in your research, please consider citing our paper:
 
 <pre>
-
+@inproceedings{
+lin2025understanding,
+title={Understanding and Enhancing the Transferability of Jailbreaking Attacks},
+author={Runqi Lin and Bo Han and Fengwang Li and Tongliang Liu},
+booktitle={The Thirteenth International Conference on Learning Representations},
+year={2025}
+}
 </pre>
