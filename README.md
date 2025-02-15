@@ -1,11 +1,11 @@
 <div align="center">
 
 # Understanding and Enhancing the Transferability of Jailbreaking Attacks
-[![Paper](https://img.shields.io/badge/paper-ICLR-green)]()
+[![Paper](https://img.shields.io/badge/paper-ICLR-green)](https://arxiv.org/pdf/2502.03052)
 
 </div>
 
-Official implementation of [Understanding and Enhancing the Transferability of Jailbreaking Attacks]() (ICLR 2025).
+Official implementation of [Understanding and Enhancing the Transferability of Jailbreaking Attacks](https://arxiv.org/pdf/2502.03052) (ICLR 2025).
 
 ## Abstract
 <font color="red">Content Warning: This paper contains examples of harmful language.</font>
