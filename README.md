@@ -40,25 +40,25 @@ Extensive experiments demonstrate that PiF provides an effective and efficient r
 Generate jailbreaking attack based on MLM (Bert)
 
 ```
-python3 PiF_MLM.py --gen_model_path ../bert-large-uncased --tgt_model_path ../Llama-2-13b-chat-hf --opt_objective ASR --interation 20 --output_dir PiF_From_Bert_To_Llama-2-13B
+python3 PiF_MLM.py --gen_model_path ../bert-large-uncased --tgt_model_path ../Mistral-7B-Instruct --opt_objective ASR --output_dir PiF_From_Bert_To_Mistral-7B
 ```
 
 Generate jailbreaking attack based on CLM (Llama)
 
 ```
-python3 PiF_CLM.py --gen_model_path ../Llama-2-7b-chat-hf --tgt_model_path ../Llama-2-13b-chat-hf --opt_objective ASR --interation 20 --output_dir PiF_From_Llama-2-7B_To_Llama-2-13B
+python3 PiF_CLM.py --gen_model_path ../Llama-2-7b-chat-hf --tgt_model_path ../Mistral-7B-Instruct --opt_objective ASR --output_dir PiF_From_Llama-2-7B_To_Mistral-7B
 ```
 
 Jailbreaking GPT evaluated by keyword ASR
 
 ```
-python3 PiF_MLM.py --gen_model_path ../bert-large-uncased --tgt_model_path gpt-4-0613 --opt_objective ASR --interation 50 --output_dir PiF_From_Bert_To_GPT
+python3 PiF_MLM.py --gen_model_path ../bert-large-uncased --tgt_model_path gpt-4-0613 --opt_objective ASR --output_dir PiF_From_Bert_To_GPT-4
 ```
 
 Jailbreaking GPT evaluated by keyword ASR+GPT
 
 ```
-python3 PiF_MLM.py --gen_model_path ../bert-large-uncased --tgt_model_path gpt-4-0613 --opt_objective ASR+GPT --interation 50 --output_dir PiF_From_Bert_To_GPT_ASR+GPT
+python3 PiF_MLM.py --gen_model_path ../bert-large-uncased --tgt_model_path gpt-4-0613 --opt_objective ASR+GPT --output_dir PiF_From_Bert_To_GPT-4_ASR+GPT
 ```
 
 ## License and Contributing
