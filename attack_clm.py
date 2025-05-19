@@ -178,7 +178,7 @@ def generate_attack(generate_m, generate_t, tgt_m, tgt_t, texts, evaluation_temp
     current_texts = texts.copy()
 
     for iter in range(iterations):
-
+        ### The models are loaded per iteration!
         generate_model = AutoModelForCausalLM.from_pretrained(generate_m, 
                             output_hidden_states=True, 
                             # load_in_8bit=True, 

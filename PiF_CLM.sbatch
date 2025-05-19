@@ -27,4 +27,5 @@ python -u PiF_CLM.py\
     --tgt_model_path tiiuae/Falcon3-10B-Instruct\
     --att_file data/jailbreakbench.txt\
     --opt_objective ASR+GPT\
+    --iteration 10\
     --output_dir PiF_From_JBB
