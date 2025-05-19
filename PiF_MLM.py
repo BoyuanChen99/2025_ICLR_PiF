@@ -68,7 +68,11 @@ def main():
     generate_model = AutoModelForMaskedLM.from_pretrained(args.gen_model_path, output_hidden_states=True).to(device).eval()
     generate_tokenizer = AutoTokenizer.from_pretrained(args.gen_model_path, use_fast=True)
     if args.tgt_model_path != "gpt-4-0613" and args.tgt_model_path != "o1-preview-2024-09-12":
-        tgt_model = AutoModelForCausalLM.from_pretrained(args.tgt_model_path, load_in_8bit=True, use_flash_attention_2=True, cache_dir='./hf_models', device_map="auto").eval()  # load_in_8bit=True,
+        tgt_model = AutoModelForCausalLM.from_pretrained(args.tgt_model_path, 
+                        load_in_8bit=True, 
+                        # use_flash_attention_2=True, 
+                        cache_dir='./hf_models', 
+                        device_map="auto").eval()
         tgt_tokenizer = AutoTokenizer.from_pretrained(args.tgt_model_path, cache_dir='./hf_models')
 
         if tgt_tokenizer.pad_token is None:

@@ -178,7 +178,12 @@ def generate_attack(generate_m, generate_t, tgt_m, tgt_t, texts, evaluation_temp
 
     for iter in range(iterations):
 
-        generate_model = AutoModelForCausalLM.from_pretrained(generate_m, output_hidden_states=True, load_in_8bit=True, use_flash_attention_2=True, cache_dir='./hf_models', device_map="auto").eval()
+        generate_model = AutoModelForCausalLM.from_pretrained(generate_m, 
+                            output_hidden_states=True, 
+                            load_in_8bit=True, 
+                            # use_flash_attention_2=True, 
+                            cache_dir='./hf_models', 
+                            device_map="auto").eval()
         generate_tokenizer = AutoTokenizer.from_pretrained(generate_t, use_fast=True)
         if generate_tokenizer.pad_token is None:
             if generate_tokenizer.eos_token:
@@ -205,7 +210,11 @@ def generate_attack(generate_m, generate_t, tgt_m, tgt_t, texts, evaluation_temp
         torch.cuda.empty_cache()
 
         if tgt_m != "gpt-4-0613" and tgt_m != "o1-preview-2024-09-12":
-            tgt_model = AutoModelForCausalLM.from_pretrained(tgt_m, load_in_8bit=True, use_flash_attention_2=True, cache_dir='./hf_models', device_map="auto").eval()
+            tgt_model = AutoModelForCausalLM.from_pretrained(tgt_m, 
+                            load_in_8bit=True, 
+                            # use_flash_attention_2=True, 
+                            cache_dir='./hf_models', 
+                            device_map="auto").eval()
             tgt_tokenizer = AutoTokenizer.from_pretrained(tgt_t, cache_dir='./hf_models')
             if tgt_tokenizer.pad_token is None:
                 if tgt_tokenizer.eos_token:
