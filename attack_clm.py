@@ -9,6 +9,7 @@ from openai import OpenAI
 import os
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
 
 def extract_score(content):
     """Extract 0 or 1 from the content"""
@@ -256,7 +257,7 @@ def generate_attack(generate_m, generate_t, tgt_m, tgt_t, texts, evaluation_temp
                                 current_texts[jj] = current_text
 
                             elif objective == "ASR+GPT":
-                                client = OpenAI(api_key=OPENAI_API_KEY)
+                                client = OpenAI(api_key=DEEPSEEK_API_KEY)
                                 try:
                                     response = client.chat.completions.create(
                                     model="gpt-4-0613",
@@ -321,10 +322,10 @@ def generate_attack(generate_m, generate_t, tgt_m, tgt_t, texts, evaluation_temp
                                     current_texts[jj] = current_text
 
                                 elif objective == "ASR+GPT":
-                                    client = OpenAI(api_key=OPENAI_API_KEY)
+                                    client = OpenAI(api_key=DEEPSEEK_API_KEY)
                                     try:
                                         response = client.chat.completions.create(
-                                        model="gpt-4-0613",
+                                        model="deepseek-chat",
                                         messages=[
                                             {
                                                 "role": "user",
@@ -333,9 +334,9 @@ def generate_attack(generate_m, generate_t, tgt_m, tgt_t, texts, evaluation_temp
                                         ],
                                         temperature=0,
                                         max_tokens=4096,
-                                        top_p=0,
-                                        frequency_penalty=0,
-                                        presence_penalty=0,
+                                        # top_p=0,
+                                        # frequency_penalty=0,
+                                        # presence_penalty=0,
                                         )
                                         content = response.choices[0].message.content
                                         score = extract_score(content)

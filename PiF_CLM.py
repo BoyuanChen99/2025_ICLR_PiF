@@ -31,7 +31,7 @@ def get_args():
     parser.add_argument("--evaluation_template", type=str, default="this intent is [MASK]")
 
     parser.add_argument("--batch_size", type=int, default=1)
-    parser.add_argument("--interation", type=int, default=50)
+    parser.add_argument("--iteration", type=int, default=50)
     parser.add_argument("--top_n", type=int, default=15)
     parser.add_argument("--top_m", type=int, default=15)
     parser.add_argument("--top_k", type=int, default=15)
@@ -89,7 +89,7 @@ def main():
         for ii in range(0, len(prompt_advbench), args.batch_size):
             chunk_size = min(args.batch_size, len(prompt_advbench) - ii)
             query, time, flags, gen_attacks, tgt_responses = attack_clm.generate_attack(args.gen_model_path, args.gen_model_path, args.tgt_model_path, args.tgt_model_path, prompt_advbench[ii:ii + chunk_size], evaluation_template,
-                                                            objective = args.opt_objective, iterations = args.interation, top_n = args.top_n , top_m = args.top_m ,
+                                                            objective = args.opt_objective, iterations = args.iteration, top_n = args.top_n , top_m = args.top_m ,
                                                             top_k = args.top_k , warm_up = args.warm_up, temperature = args.temperature , threshold = args.threshold , device = device)
             overall_query += query
             overall_time += time

@@ -22,4 +22,9 @@ conda activate cipherword
 export HF_HOME='/scratch/bc3194/huggingface_cache'
 
 # Call python script with the model variable
-python -u PiF_CLM.py --gen_model_path meta-llama/Llama-2-7b-chat-hf --tgt_model_path tiiuae/Falcon3-10B-Instruct --opt_objective ASR --output_dir PiF_From_Llama-2-7B_To_Falcon3-10B
+python -u PiF_CLM.py\
+    --gen_model_path meta-llama/Llama-2-7b-chat-hf\
+    --tgt_model_path tiiuae/Falcon3-10B-Instruct\
+    --att_file data/jailbreakbench.txt\
+    --opt_objective ASR\
+    --output_dir PiF_From_JBB
