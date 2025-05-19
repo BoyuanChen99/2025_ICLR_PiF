@@ -6,8 +6,9 @@ import time
 import gc
 import eval_template
 from openai import OpenAI
+import os
 
-OPENAI_API_KEY = "YOUR API KEY"
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 def extract_score(content):
     """Extract 0 or 1 from the content"""

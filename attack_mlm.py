@@ -5,8 +5,10 @@ from transformers import AutoModelForMaskedLM, AutoModelForCausalLM, AutoTokeniz
 import time
 import eval_template
 from openai import OpenAI
+import os
 
-OPENAI_API_KEY = "YOUR API KEY"
+### Load from env
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 def extract_score(content):
     """Extract 0 or 1 from the content"""
