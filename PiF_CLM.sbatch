@@ -26,5 +26,5 @@ python -u PiF_CLM.py\
     --gen_model_path meta-llama/Llama-2-7b-chat-hf\
     --tgt_model_path tiiuae/Falcon3-10B-Instruct\
     --att_file data/jailbreakbench.txt\
-    --opt_objective ASR\
+    --opt_objective ASR+GPT\
     --output_dir PiF_From_JBB
