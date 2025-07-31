@@ -78,8 +78,9 @@ def main():
                         # use_flash_attention_2=True, 
                         # cache_dir='./hf_models', 
                         torch_dtype=torch.float16,
+                        trust_remote_code=True,
                         device_map="auto").eval()
-        tgt_tokenizer = AutoTokenizer.from_pretrained(args.tgt_model_path, cache_dir='./hf_models')
+        tgt_tokenizer = AutoTokenizer.from_pretrained(args.tgt_model_path, cache_dir='./hf_models', trust_remote_code=True)
 
         if tgt_tokenizer.pad_token is None:
             if tgt_tokenizer.eos_token:
