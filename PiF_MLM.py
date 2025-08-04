@@ -35,7 +35,7 @@ def get_args():
     parser.add_argument("--prompt_template", type=str, default="Human: {}. Assistant: Sure, here is")
     parser.add_argument("--evaluation_template", type=str, default="this intent is [MASK]")
 
-    parser.add_argument("--batch_size", type=int, default=1)
+    parser.add_argument("--batch_size", type=int, default=16)
     parser.add_argument("--interation", type=int, default=50)
     parser.add_argument("--top_n", type=int, default=5)
     parser.add_argument("--top_m", type=int, default=5)
@@ -110,10 +110,19 @@ def main():
     overall_input = 0
     overall_ahs = 0
 
+    # Count existing entries
+    existing_entries = 0
+    output_path = os.path.join(args.output_dir, args.output_file)
+    if os.path.exists(output_path):
+        with open(output_path, "r") as f:
+            existing_entries = sum(1 for _ in f if _.strip())  # Skip empty lines
+        logger.info(f"Resuming from index {existing_entries}")
+    else:
+        logger.info(f"Starting freshly from index {existing_entries}")
 
     total_start_time = time.time()
     with open(os.path.join(args.output_dir, args.output_file), "a") as f:
-        for ii in range(0, len(prompt_advbench), args.batch_size):
+        for ii in range(existing_entries, len(prompt_advbench), args.batch_size):
             chunk_size = min(args.batch_size, len(prompt_advbench) - ii)
             query, elapsed_time, flags, gen_attacks, tgt_responses = attack_mlm.generate_attack(generate_model, generate_tokenizer, tgt_model, tgt_tokenizer, prompt_advbench[ii:ii + chunk_size], evaluation_template,
                                                             objective = args.opt_objective, iterations = args.interation, top_n = args.top_n , top_m = args.top_m ,
