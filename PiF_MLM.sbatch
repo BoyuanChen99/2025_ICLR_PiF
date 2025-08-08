@@ -8,7 +8,7 @@
 #SBATCH --gres=gpu:a100:1
 #SBATCH --time=71:59:59
 #SBATCH --mem=50GB
-#SBATCH --job-name=PiF-ITSR
+#SBATCH --job-name=PF-IT-SR
 
 module purge
 
